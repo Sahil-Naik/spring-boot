@@ -1,0 +1,14 @@
+# Use an OpenJDK base image
+FROM openjdk:17-jdk
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy the built JAR file
+COPY target/Day27-Docker-ServerRegistry-3.4.3.jar server-registry.jar
+
+# Expose the Eureka Server port
+EXPOSE 8761
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "server-registry.jar"]
